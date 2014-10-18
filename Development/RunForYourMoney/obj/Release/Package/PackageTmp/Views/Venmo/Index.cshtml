@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "UserView";
+}
+
+<h2>@ViewBag.access_token</h2>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            var serviceURL = 'https://api.venmo.com/v1/me?access_token=@ViewBag.access_token';
+
+            $.ajax({
+                type: "GET",
+                url: serviceURL,
+                data: param = "",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successFunc,
+                error: errorFunc
+            });
+
+            function successFunc(data, status) {
+                alert(data);
+            }
+
+            function errorFunc() {
+                alert('error');
+            }
+        });
+</script>
